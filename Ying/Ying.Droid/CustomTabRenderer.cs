@@ -70,6 +70,25 @@ namespace Ying.Droid
                 tabThree.SetIcon(Resource.Drawable.ic_business_center);
 
 
+                ActionBar.Tab tabfour = actionBar.GetTabAt(3);
+                tabfour.SetText("Resource");
+                tabfour.SetIcon(Resource.Drawable.ic_business_center);
+
+                ActionBar.Tab tabfive = actionBar.GetTabAt(4);
+                tabfive.SetText("Resource");
+                tabfive.SetIcon(Resource.Drawable.ic_business_center);
+
+
+                ActionBar.Tab tabsix = actionBar.GetTabAt(5);
+                tabsix.SetText("Resource");
+                tabsix.SetIcon(Resource.Drawable.ic_business_center);
+
+
+                ActionBar.Tab tabsev = actionBar.GetTabAt(6);
+                tabsev.SetText("Resource");
+                tabsev.SetIcon(Resource.Drawable.ic_business_center);
+
+
             }
 
             base.OnDraw(canvas);
