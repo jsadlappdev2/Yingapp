@@ -15,6 +15,7 @@ namespace Ying
         public Photo()
         {
             InitializeComponent();
+            
         }
     }
 }
