@@ -15,6 +15,7 @@ namespace Ying
         ImageSource _imageSource;
         private IMedia _mediaPicker;
         Image image;
+    
 
         public Resource()
         {
@@ -38,7 +39,7 @@ namespace Ying
 
             image = new Image
             {
-                Aspect = Aspect.AspectFit,
+               Aspect = Aspect.AspectFit,
             };
 
             Label label = new Label
@@ -51,7 +52,20 @@ namespace Ying
                 TextColor = Color.Black
             };
 
-            Button TPbutton = new Button
+            Image corpedimage = new Image {
+                BackgroundColor = Color.Yellow,
+                HeightRequest = 200,
+                WidthRequest =200
+               };
+            if (App.CroppedImage != null)
+            {
+                Stream stream = new MemoryStream(App.CroppedImage);
+                corpedimage.Source = ImageSource.FromStream(() => stream);
+            }
+
+
+
+                Button TPbutton = new Button
             {
                 Text = "Take Photo",
                 Font = Font.SystemFontOfSize(NamedSize.Large),
@@ -61,7 +75,8 @@ namespace Ying
             };
             TPbutton.Clicked += async delegate
             {
-                await TakePicture();
+               await TakePicture();           
+
             };
 
             Button PPbutton = new Button
@@ -74,8 +89,15 @@ namespace Ying
             };
             PPbutton.Clicked += async delegate
             {
-                await SelectPicture();
+                await SelectPicture();              
+
+
             };
+
+
+         
+
+
 
 
             BackgroundColor = Color.White;
@@ -85,8 +107,10 @@ namespace Ying
                 Children =
                 {
                     label,
-                    TPbutton,
+                    corpedimage,
+                   TPbutton,
                     PPbutton
+                    
                 }
             };
 
@@ -102,7 +126,30 @@ namespace Ying
                     Stream stream = new MemoryStream(App.CroppedImage);
                     image.Source = ImageSource.FromStream(() => stream);
 
-                    Content = image;
+                    Button Navbutton = new Button
+                    {
+                        Text = "Navigate to Reshource page",
+                        Font = Font.SystemFontOfSize(NamedSize.Large),
+                        BorderWidth = 1,
+                        //  HorizontalOptions = LayoutOptions.Center,
+                        //  VerticalOptions = LayoutOptions.CenterAndExpand
+                    };
+                    Navbutton.Clicked += async delegate
+                    {
+                        await Navigation.PushModalAsync(new Resource());
+
+
+                    };
+
+                    this.Content = new StackLayout
+                    {
+                        Children =
+                            {
+                                  Navbutton,
+                                   image
+                           }
+
+                    };
                 }
             }
             catch (Exception ex)
@@ -110,6 +157,8 @@ namespace Ying
                 Debug.WriteLine(ex.Message);
             }
         }
+
+       
 
         #region Photos
 
@@ -142,7 +191,8 @@ namespace Ying
                 await mediaFile.GetStream().CopyToAsync(memoryStream);
                 byte[] imageAsByte = memoryStream.ToArray();
 
-                await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));
+              await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));
+           
 
             }
             catch (System.Exception ex)

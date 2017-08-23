@@ -18,14 +18,14 @@ namespace Ying.Droid
             {
                 var cropImageView = new CropImageView(Context);
                 cropImageView.AutoZoomEnabled = false;
-                //cropImageView.SetMinCropResultSize(200, 200);
-                //cropImageView.SetMaxCropResultSize(300, 300);
-                cropImageView.SetAspectRatio(1, 1);
-                cropImageView.LayoutParameters = new LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent);
+               // cropImageView.SetMinCropResultSize(200, 200);
+               // cropImageView.SetMaxCropResultSize(300, 300);
+              //  cropImageView.SetAspectRatio(1, 1);
+             //   cropImageView.LayoutParameters = new LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent);
                 Bitmap bitmp = BitmapFactory.DecodeByteArray(page.Image, 0, page.Image.Length);
                 cropImageView.SetImageBitmap(bitmp);
 
-                var stackLayout = new StackLayout { Children = { cropImageView } };
+              //  var stackLayout = new StackLayout { Children = { cropImageView } };
 
                 var rotateButton = new Xamarin.Forms.Button { Text = "Rotate" };
 
@@ -33,7 +33,7 @@ namespace Ying.Droid
                 {
                     cropImageView.RotateImage(90);
                 };
-                stackLayout.Children.Add(rotateButton);
+               // stackLayout.Children.Add(rotateButton);
 
                 var finishButton = new Xamarin.Forms.Button { Text = "Finished" };
                 finishButton.Clicked += (sender, ex) =>
@@ -48,7 +48,18 @@ namespace Ying.Droid
                     page.Navigation.PopModalAsync();
                 };
 
-                stackLayout.Children.Add(finishButton);
+              //  stackLayout.Children.Add(finishButton);
+              var stackLayout =
+new StackLayout
+{
+    Children =
+                            {    rotateButton,
+finishButton,
+                                  cropImageView
+                               
+                           }
+
+};
                 page.Content = stackLayout;
             }
         }
