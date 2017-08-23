@@ -32,7 +32,7 @@
                   AbsoluteLayout.LayoutBounds="0,.1,1,.1"
                   AbsoluteLayout.LayoutFlags="All">
      
-                 <Button x:Name="takephoto"   Text ="Take Photo"  Image="ic_photo_camera.png" HorizontalOptions="Start"  VerticalOptions="Center"  />
+                 <Button x:Name="takephoto"   Text ="Take Photo"  Image="ic_photo_camera.png" HorizontalOptions="Start"  VerticalOptions="Center" Clicked="CorpPicture" />
                  <Button x:Name="Clear"       Text ="Clear"      Image="ic_photo_camera.png"  HorizontalOptions="Center"  VerticalOptions="Center"  />
     </StackLayout>
     

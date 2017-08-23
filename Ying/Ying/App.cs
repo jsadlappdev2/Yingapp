@@ -4,11 +4,15 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using Ying.Views;
+
 
 namespace Ying
 {
     public class App : Application
     {
+
+        public static byte[] CroppedImage;
         public App()
         {
             // The root page of your application
@@ -25,7 +29,10 @@ namespace Ying
             //         }
             //    }
             //};
-            MainPage = new HomePage();
+
+
+         MainPage = new HomePage();
+         //   MainPage = new NavigationPage(new Views.CorpPicturePage());
         }
 
         protected override void OnStart()

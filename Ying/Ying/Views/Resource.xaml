@@ -4,9 +4,5 @@
              x:Class="Ying.Resource"
              Title="Resource"
              Icon="ic_business_center.png">
-    <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label Text="Welcome to Resource Forms!" TextColor="Red" />
-        </StackLayout>
-    </ContentPage.Content>
+   
 </ContentPage>

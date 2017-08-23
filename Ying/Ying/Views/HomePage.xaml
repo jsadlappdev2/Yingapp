@@ -8,9 +8,7 @@
         <mypages:Photo />
         <mypages:Voice />
         <mypages:Resource />
-        <mypages:Resource />
-        <mypages:Resource />
-        <mypages:Resource />
-        <mypages:Resource />
+
+     
     </TabbedPage.Children>
 </TabbedPage>
