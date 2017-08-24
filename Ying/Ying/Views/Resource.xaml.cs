@@ -19,7 +19,7 @@ namespace Ying
 
         public Resource()
         {
-            Title = "Crop View";
+            Title = "CropView";
             NavigationPage.SetHasNavigationBar(this, true);
             //ToolbarItems.Add(new ToolbarItem()
             //{
@@ -116,6 +116,8 @@ namespace Ying
 
     
     }
+
+     
 
         private void Refresh()
         {
