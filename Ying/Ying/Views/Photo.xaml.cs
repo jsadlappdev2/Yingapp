@@ -24,7 +24,7 @@ namespace Ying
             try
             {
                // await Navigation.PushAsync(new Views.CorpPicturePage());
-                 new NavigationPage(new Views.CorpPicturePage());
+                // new NavigationPage(new Views.CorpPicturePage());
             }
             catch (Exception ee)
             {

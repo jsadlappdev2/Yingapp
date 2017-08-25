@@ -1,19 +1,16 @@
-﻿using Foundation;
+﻿using System;
 using System.Diagnostics;
+using Foundation;
 using UIKit;
 using Xam.Plugins.ImageCropper.iOS;
-using Xamarin.Forms.Platform.iOS;
-using Ying.Views;
+using Ying;
 using Xamarin.Forms;
-using System.Collections;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.IO;
-using System;
+using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(Ying.Views.CropView), typeof(Ying.iOS.CropViewRenderer))]
-namespace Ying.iOS
+[assembly: ExportRenderer(typeof(Ying.Views.CropView), typeof(Ying.iOS.Renderer.CropViewRenderer))]
+namespace Ying.iOS.Renderer
 {
+
     public class CropViewRenderer : PageRenderer
     {
         CropViewDelegate selector;
@@ -25,7 +22,7 @@ namespace Ying.iOS
         {
             base.ViewDidLoad();
 
-            var page = base.Element as CropView;
+            var page = base.Element as Ying.Views.CropView;
             Image = page.Image;
             DidCrop = page.DidCrop;
         }
@@ -46,7 +43,6 @@ namespace Ying.iOS
 
                     selector = new CropViewDelegate(this);
 
-                    // https://github.com/TimOliver/TOCropViewController
                     TOCropViewController picker = new TOCropViewController(image);
                     // Demo for Circular Cropped Image
                     //TOCropViewController picker = new TOCropViewController(TOCropViewCroppingStyle.Circular, image);
@@ -68,7 +64,7 @@ namespace Ying.iOS
 
             try
             {
-                var page = base.Element as CropView;
+                var page = base.Element as Ying.Views.CropView;
                 page.DidCrop = selector.DidCrop;
             }
             catch (Exception ex)
@@ -121,5 +117,5 @@ namespace Ying.iOS
             parent.DismissViewController(true, () => { App.Current.MainPage.Navigation.PopModalAsync(); });
         }
     }
-
 }
+

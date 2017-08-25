@@ -5,61 +5,11 @@
              Title="Voice"
              Icon="ic_settings_voice.png">
     <ContentPage.Content>
-        <AbsoluteLayout BackgroundColor="White"  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+        <StackLayout>
+            <Button x:Name="takephoto" Text="Take Photo" Clicked="takephoto_clicked"></Button>
+            <Button x:Name="pickupphoto" Text="Pickup Photo" Clicked="pickupphoto_clicked"></Button>
+            <Image x:Name="corpimage" HeightRequest="100" WidthRequest="100"></Image>
+        </StackLayout>
 
-            <AbsoluteLayout BackgroundColor="Yellow"  AbsoluteLayout.LayoutBounds="0,0,1,.1" AbsoluteLayout.LayoutFlags="All">
-                <Button x:Name="takephotobtn" Text="Take Photo" Image="ic_photo_camera.png"
-                        AbsoluteLayout.LayoutBounds="0,1,.5,1" AbsoluteLayout.LayoutFlags="All" Clicked="takephoto_click" />
-                <Button x:Name="pickupphotobtn" Text="Pickup Photo"  Image="ic_photo_camera.png"
-                        AbsoluteLayout.LayoutBounds="1,1,.5,1" AbsoluteLayout.LayoutFlags="All" Clicked="pickupphoto_click" />
-            </AbsoluteLayout>           
-
-            <StackLayout  Orientation="Vertical" 
-                  HorizontalOptions="FillAndExpand"
-                  AbsoluteLayout.LayoutBounds="0,.1,1,.1"
-                  AbsoluteLayout.LayoutFlags="All">
-                <ActivityIndicator x:Name="indicator" 
-                          IsRunning="True" 
-                          IsVisible="True" 
-                          Color="Gray"
-                          HorizontalOptions="Center" />
-            </StackLayout>
-
-            <AbsoluteLayout BackgroundColor="Blue"    AbsoluteLayout.LayoutBounds="0,.2,1,.1" AbsoluteLayout.LayoutFlags="All">
-             
-                    <Button x:Name="translatebtn" Text="Translate" Image="ic_photo_camera.png"
-                        AbsoluteLayout.LayoutBounds="0,1,.5,1" AbsoluteLayout.LayoutFlags="All" />
-                    <Button x:Name="speakbtn1" Text="Speak"  Image="ic_photo_camera.png"
-                        AbsoluteLayout.LayoutBounds="1,1,.5,1" AbsoluteLayout.LayoutFlags="All" />
-             
-            </AbsoluteLayout>
-
-            <AbsoluteLayout BackgroundColor="Black"   AbsoluteLayout.LayoutBounds="0,.4,1,.3" AbsoluteLayout.LayoutFlags="All">
-                <Editor x:Name="TextLabel"
-                 Text="Text from Picture will show here"
-                 AbsoluteLayout.LayoutBounds="0,1,1,1"
-                AbsoluteLayout.LayoutFlags="All"
-                BackgroundColor="Yellow"   />
-            </AbsoluteLayout>
-
-
-            <AbsoluteLayout BackgroundColor="Pink"    AbsoluteLayout.LayoutBounds="0,.6,1,.12" AbsoluteLayout.LayoutFlags="All">
-                <Button x:Name="speakbtn2" Text="Speak" Image="ic_photo_camera.png"
-                        AbsoluteLayout.LayoutBounds="0,1,.5,1" AbsoluteLayout.LayoutFlags="All" />
-            </AbsoluteLayout>
-
-
-            <AbsoluteLayout BackgroundColor="Gray"    AbsoluteLayout.LayoutBounds="0,1,1,.36" AbsoluteLayout.LayoutFlags="All">
-                <Editor x:Name="TransLabel"
-                 Text="Translate Text will show here"
-                 AbsoluteLayout.LayoutBounds="0,1,1,1"
-                AbsoluteLayout.LayoutFlags="All"
-                BackgroundColor="Blue"   />
-            </AbsoluteLayout>
-
-
-
-
-        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

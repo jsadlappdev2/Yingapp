@@ -1,15 +1,18 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
+using Ying;
 using Ying.Views;
-
 
 namespace Ying
 {
@@ -18,7 +21,6 @@ namespace Ying
     {
         ImageSource _imageSource;
         private IMedia _mediaPicker;
-        Image image;
 
         public Voice()
         {
@@ -27,18 +29,18 @@ namespace Ying
         }
 
 
-        async void takephoto_click(object sender, EventArgs e)
+        private async void takephoto_clicked(object sender, EventArgs e)
         {
+
             await TakePicture();
-
         }
 
-
-        async void pickupphoto_click(object sender, EventArgs e)
+        private async void pickupphoto_clicked(object sender, EventArgs e)
         {
-            await SelectPicture();
 
+            await SelectPicture();
         }
+
 
 
         private void Refresh()
@@ -47,38 +49,9 @@ namespace Ying
             {
                 if (App.CroppedImage != null)
                 {
-                    Image image = new Image
-                    {
-                        Aspect = Aspect.AspectFit,
-                    };
-
                     Stream stream = new MemoryStream(App.CroppedImage);
-                    image.Source = ImageSource.FromStream(() => stream);
+                    corpimage.Source = ImageSource.FromStream(() => stream);
 
-                    Button Navbutton = new Button
-                    {
-                        Text = "Navigate to Reshource page",
-                        Font = Font.SystemFontOfSize(NamedSize.Large),
-                        BorderWidth = 1,
-                        //  HorizontalOptions = LayoutOptions.Center,
-                        //  VerticalOptions = LayoutOptions.CenterAndExpand
-                    };
-                    Navbutton.Clicked += async delegate
-                    {
-                        await Navigation.PushModalAsync(new Resource());
-
-
-                    };
-
-                    this.Content = new StackLayout
-                    {
-                        Children =
-                            {
-                                  Navbutton,
-                                   image
-                           }
-
-                    };
                 }
             }
             catch (Exception ex)
@@ -86,8 +59,6 @@ namespace Ying
                 Debug.WriteLine(ex.Message);
             }
         }
-
-
 
         #region Photos
 
@@ -121,7 +92,6 @@ namespace Ying
                 byte[] imageAsByte = memoryStream.ToArray();
 
                 await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));
-
 
             }
             catch (System.Exception ex)
@@ -160,3 +130,5 @@ namespace Ying
         #endregion
     }
 }
+
+

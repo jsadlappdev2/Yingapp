@@ -7,7 +7,7 @@
     <TabbedPage.Children>
         <mypages:Photo />
         <mypages:Voice />
-        <mypages:Resource />
+        <mypages:Voice />
 
      
     </TabbedPage.Children>

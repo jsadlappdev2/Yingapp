@@ -53,7 +53,7 @@ namespace Ying.Droid
             if (actionBar.TabCount > 0)
             {
                 ActionBar.Tab tabOne = actionBar.GetTabAt(0);
-                tabOne.SetText("Photo");
+                tabOne.SetText("Picture");
                 tabOne.SetIcon(Resource.Drawable.ic_photo_camera);
 
 

@@ -173,11 +173,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CropViewRenderer.cs" />
-    <Compile Include="CustomTabRenderer.cs" />
+    <Compile Include="Renderer\CustomTabRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainApplication.cs" />
-    <Compile Include="Picture_Droid.cs" />
+    <Compile Include="Renderer\CropViewRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

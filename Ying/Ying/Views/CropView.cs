@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.IO;
+using System.Diagnostics;
+
+
+
 
 namespace Ying.Views
 {
@@ -16,7 +21,7 @@ namespace Ying.Views
         public CropView(byte[] imageAsByte, Action refreshAction)
         {
 
-            NavigationPage.SetHasNavigationBar(this, true);
+            NavigationPage.SetHasNavigationBar(this, false);
             BackgroundColor = Color.Black;
             Image = imageAsByte;
 
@@ -31,5 +36,4 @@ namespace Ying.Views
                 RefreshAction.Invoke();
         }
     }
-
 }
