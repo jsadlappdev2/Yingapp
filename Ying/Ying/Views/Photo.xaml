@@ -4,7 +4,6 @@
              x:Class="Ying.Photo"
              Title="Photo"
              Icon="ic_photo_camera.png">
-  
 <ContentPage.Resources> 
        <ResourceDictionary> 
             <Style x:Key="labelStyle" TargetType="Label"> 

@@ -37,6 +37,9 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Views\CropView.cs" />
+    <Compile Include="Views\Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -46,6 +49,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Resource.xaml.cs">
       <DependentUpon>Resource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Stroke.xaml.cs">
+      <DependentUpon>Stroke.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Voice.xaml.cs">
       <DependentUpon>Voice.xaml</DependentUpon>
@@ -108,6 +114,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Resource.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Stroke.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Help.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

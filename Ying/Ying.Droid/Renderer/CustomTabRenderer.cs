@@ -53,7 +53,7 @@ namespace Ying.Droid
             if (actionBar.TabCount > 0)
             {
                 ActionBar.Tab tabOne = actionBar.GetTabAt(0);
-                tabOne.SetText("Picture");
+                tabOne.SetText("Photo");
                 tabOne.SetIcon(Resource.Drawable.ic_photo_camera);
 
 
@@ -66,8 +66,19 @@ namespace Ying.Droid
 
 
                 ActionBar.Tab tabThree = actionBar.GetTabAt(2);
-                tabThree.SetText("Resource");
-                tabThree.SetIcon(Resource.Drawable.ic_business_center);
+                tabThree.SetText("Stroke");
+                tabThree.SetIcon(Resource.Drawable.ic_settings_voice);
+
+
+
+                ActionBar.Tab tabFour = actionBar.GetTabAt(3);
+                tabFour.SetText("Resource");
+                tabFour.SetIcon(Resource.Drawable.ic_business_center);
+
+
+                ActionBar.Tab tabFive = actionBar.GetTabAt(4);
+                tabFive.SetText("Help");
+                tabFive.SetIcon(Resource.Drawable.ic_business_center);
 
 
                 //ActionBar.Tab tabfour = actionBar.GetTabAt(3);

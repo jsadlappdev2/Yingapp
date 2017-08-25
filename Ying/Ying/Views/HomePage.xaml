@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:mypages="clr-namespace:Ying"
+             xmlns:mypages="clr-namespace:Ying;assembly=Ying"
+             xmlns:mypages2="clr-namespace:Ying.Views;assembly=Ying"
              x:Class="Ying.HomePage"
             BackgroundColor="White">
     <TabbedPage.Children>
-        <mypages:Photo />
+        <mypages:Photo/>
         <mypages:Voice />
-        <mypages:Voice />
+        <mypages2:Stroke/>
+        <mypages2:Resource/>
+        <mypages2:Help/>
 
-     
+
     </TabbedPage.Children>
 </TabbedPage>
