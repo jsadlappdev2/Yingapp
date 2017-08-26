@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ying.Views.Resource"
               Title="Resource"
-             Icon="ic_photo_camera.png">
+             Icon="ic_business_center.png">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Resource Forms!" />

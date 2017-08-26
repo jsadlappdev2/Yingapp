@@ -2,100 +2,47 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ying.Photo"
-             Title="Photo"
+             Title="Picture"
              Icon="ic_photo_camera.png">
-<ContentPage.Resources> 
-       <ResourceDictionary> 
-            <Style x:Key="labelStyle" TargetType="Label"> 
-               <Setter Property="TextColor" Value="#a8a8a8" /> 
-               <Setter Property="FontSize" Value="Small" /> 
-           </Style> 
-           <Style x:Key="fieldStyle" TargetType="Label"> 
-                <Setter Property="TextColor"> 
-                    <OnPlatform x:TypeArguments="Color" iOS="Black" Android="White" WinPhone="White" /> 
-                </Setter> 
-               <Setter Property="FontSize" Value="Medium" /> 
-            </Style> 
-           <Style x:Key="fieldView" TargetType="ContentView"> 
-                <Setter Property="Padding" Value="10,0,0,0" /> 
-             </Style> 
-         </ResourceDictionary> 
-</ContentPage.Resources> 
-  
-<ContentPage.Content>
- <AbsoluteLayout>      
-     <!-- two button -->
-    <StackLayout  Orientation="Horizontal" 
-                  HorizontalOptions="FillAndExpand"
-                  BackgroundColor="#545454"
-                  AbsoluteLayout.LayoutBounds="0,.1,1,.1"
-                  AbsoluteLayout.LayoutFlags="All">
-     
-                 <Button x:Name="takephoto"   Text ="Take Photo"  Image="ic_photo_camera.png" HorizontalOptions="Start"  VerticalOptions="Center" Clicked="CorpPicture" />
-                 <Button x:Name="Clear"       Text ="Clear"      Image="ic_photo_camera.png"  HorizontalOptions="Center"  VerticalOptions="Center"  />
-    </StackLayout>
-    
-  <!-- Indicator -->
-    <StackLayout  Orientation="Vertical" 
-                  HorizontalOptions="FillAndExpand"
-                  AbsoluteLayout.LayoutBounds="0,.2,1,.1"
-                  AbsoluteLayout.LayoutFlags="All">      
-           <ActivityIndicator x:Name="indicator" 
-                          IsRunning="True" 
-                          IsVisible="True" 
-                          Color="Gray"
-                          HorizontalOptions="Center" />
-    </StackLayout>
-    
-    
-     <!-- textfrompicture -->
-    <StackLayout  Orientation="Vertical"
-                   HorizontalOptions="FillAndExpand"
-                   BackgroundColor="Yellow"
-                   AbsoluteLayout.LayoutBounds="0,.6,1,.4"
-                   AbsoluteLayout.LayoutFlags="All">
-      <StackLayout Orientation="Horizontal" 
-                  HorizontalOptions="FillAndExpand"
-                  BackgroundColor="Green"
-                  AbsoluteLayout.LayoutBounds="0,.3,1,.1"
-                  AbsoluteLayout.LayoutFlags="All">
-        
-                  <Button x:Name="Translate1" Text ="Translate" Image="ic_photo_camera.png" HorizontalOptions="Start"  VerticalOptions="Center" />
-                  <Button x:Name="Speak1"     Text ="Speak"     Image="ic_photo_camera.png" HorizontalOptions="Start"  VerticalOptions="Center" />
+ <ContentPage.Content>
+ <StackLayout Orientation="Vertical">
+     <!-- photo buttons -->
+       <StackLayout  Orientation="Horizontal"  >
+                <Button x:Name="takephoto"   Text ="Take Picture"  Image="ic_photo_camera.png" HorizontalOptions="StartAndExpand" Clicked="takephoto_clicked" />
+                <Button x:Name="pickupphoto"       Text ="Pickup Picture"      Image="ic_photo_library.png" HorizontalOptions="EndAndExpand"  Clicked="pickupphoto_clicked" />
+        </StackLayout>
+     <!-- crop image -->
+     <Image x:Name="corpimage" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center" IsVisible="False"></Image>
+     <!-- indicator -->
+     <ActivityIndicator x:Name="indicator"   IsRunning="False"   IsVisible="False"   Color="Gray" HorizontalOptions="Center" />
+                <!--default Chinese to Text-->
+     <StackLayout Orientation="Horizontal" Padding="0,5,0,0">
+                <Label x:Name="chinesetoeng" Text="Detect Chinese" HorizontalOptions="StartAndExpand" TextColor="Black"></Label>
+                <Switch x:Name="useDefaults" IsToggled="False" HorizontalOptions="Center"></Switch>
+                <Label x:Name="engtochinese" Text="Detect English" HorizontalOptions="EndAndExpand" TextColor="Black"></Label>
+            </StackLayout>
+                <!-- Google text dection -->
+                <StackLayout  Orientation="Horizontal"    >
+                <Button x:Name="textdection"   Text ="Text Dection"  Image="ic_cloud.png" HorizontalOptions="StartAndExpand" Clicked="takephoto_clicked" />
+                <Button x:Name="readoriginaltext"       Text ="Read Original Text"      Image="ic_settings_voice.png"  HorizontalOptions="EndAndExpand" Clicked="pickupphoto_clicked" />
+
       </StackLayout>
-
+     <!-- textfrompicture -->  
       <Editor x:Name="TextLabel"
-            Text="Text from Picture will show here"
-            AbsoluteLayout.LayoutBounds="0,.6,1,.3"
-            AbsoluteLayout.LayoutFlags="All"
-            BackgroundColor="Blue"
-            HeightRequest="30"
-      />
-    </StackLayout>
-    
-     <!-- transalate -->
-    <StackLayout  Orientation="Vertical"
-                   HorizontalOptions="FillAndExpand"
-                   BackgroundColor="Blue"
-                   AbsoluteLayout.LayoutBounds="0,1,1,.4"
-                   AbsoluteLayout.LayoutFlags="All">
-      
-       <StackLayout Orientation="Horizontal" 
-                  HorizontalOptions="FillAndExpand"               
-                  AbsoluteLayout.LayoutBounds="0,.7,1,.1"
-                  AbsoluteLayout.LayoutFlags="All">         
-                 <Button x:Name="Speak"  Text ="Speak"  Image="ic_photo_camera.png" HorizontalOptions="Start"  VerticalOptions="Center" />
-       </StackLayout>
-       <Editor x:Name="TransLabel"
-              Text="Translate Text will show here"
-              AbsoluteLayout.LayoutBounds="0,1,1,.3"
-              AbsoluteLayout.LayoutFlags="All"
-              BackgroundColor="Yellow"
-               HeightRequest="30"/>
-    </StackLayout>
+            Text="Text detected from picture will show here"
+            TextColor="Black"
+            HeightRequest="140"  />
+     <StackLayout  Orientation="Horizontal"  Padding="0,5,0,0">
+                <Button x:Name="translate"       Text ="Translate"      Image="ic_translate.png" HorizontalOptions="StartAndExpand" Clicked="pickupphoto_clicked" />
+                <Button x:Name="readtranstext"       Text ="Read Translated Text"      Image="ic_settings_voice.png" HorizontalOptions="EndAndExpand"  Clicked="pickupphoto_clicked" />
+     </StackLayout>
+     <!-- text for translated text -->
+     <Editor x:Name="TransLabel"
+              Text="Translated text will show here"   
+              TextColor="Black"
+              HeightRequest="140"/>
+   </StackLayout>
 
-
-  </AbsoluteLayout>
 
 </ContentPage.Content>
 </ContentPage>

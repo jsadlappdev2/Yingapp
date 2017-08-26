@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ying.Views.Stroke"
              Title="Stroke"
-             Icon="ic_photo_camera.png">
+             Icon="ic_text_fields.png">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Stroke Forms!" />

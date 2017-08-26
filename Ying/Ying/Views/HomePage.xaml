@@ -4,7 +4,7 @@
              xmlns:mypages="clr-namespace:Ying;assembly=Ying"
              xmlns:mypages2="clr-namespace:Ying.Views;assembly=Ying"
              x:Class="Ying.HomePage"
-            BackgroundColor="White">
+             BackgroundColor="White">
     <TabbedPage.Children>
         <mypages:Photo/>
         <mypages:Voice />

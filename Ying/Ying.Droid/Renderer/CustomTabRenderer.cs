@@ -60,14 +60,14 @@ namespace Ying.Droid
 
 
                 ActionBar.Tab tabTwo = actionBar.GetTabAt(1);
-                tabTwo.SetText("Voice");
+                tabTwo.SetText("Speak");
                 tabTwo.SetIcon(Resource.Drawable.ic_settings_voice);
 
 
 
                 ActionBar.Tab tabThree = actionBar.GetTabAt(2);
                 tabThree.SetText("Stroke");
-                tabThree.SetIcon(Resource.Drawable.ic_settings_voice);
+                tabThree.SetIcon(Resource.Drawable.ic_text_fields);
 
 
 
@@ -78,7 +78,7 @@ namespace Ying.Droid
 
                 ActionBar.Tab tabFive = actionBar.GetTabAt(4);
                 tabFive.SetText("Help");
-                tabFive.SetIcon(Resource.Drawable.ic_business_center);
+                tabFive.SetIcon(Resource.Drawable.ic_help);
 
 
                 //ActionBar.Tab tabfour = actionBar.GetTabAt(3);
