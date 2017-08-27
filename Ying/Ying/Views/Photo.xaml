@@ -5,47 +5,45 @@
              Title="Picture"
              Icon="ic_photo_camera.png">
  <ContentPage.Content>
- <StackLayout Orientation="Vertical" BackgroundColor="Pink">
+ <StackLayout Orientation="Vertical" >
             <ActivityIndicator x:Name="indicator"   IsRunning="False"   IsVisible="False"   Color="Gray" HorizontalOptions="Center" />
 
             <!-- photo buttons -->
-       <StackLayout  Orientation="Horizontal"  >
+            <StackLayout  Orientation="Horizontal"  Padding="0,5,0,0" >
                 <Button x:Name="takephoto"   Text ="Take Picture"  Image="ic_photo_camera.png" HorizontalOptions="StartAndExpand" Clicked="takephoto_clicked" BorderColor="Silver" BorderWidth="1" />
                 <Button x:Name="pickupphoto"       Text ="Pickup Picture"      Image="ic_photo_library.png" HorizontalOptions="EndAndExpand"  Clicked="pickupphoto_clicked" BorderColor="Silver" BorderWidth="1"/>
         </StackLayout>
      <!-- crop image -->
-     <Image x:Name="corpimage" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center" IsVisible="False"></Image>
+    <!-- <Image x:Name="corpimage" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center" IsVisible="False"></Image> -->
      <!-- indicator -->
     
      
      <!-- Google text dection -->
-     <StackLayout  Orientation="Horizontal"    >
-                <Button x:Name="textdection"   Text ="Detect"  Image="ic_cloud.png" HorizontalOptions="StartAndExpand" Clicked="detect_clicked" BorderColor="Silver" BorderWidth="1"/>
-                <Button x:Name="readoriginaltext"       Text ="Read"      Image="ic_settings_voice.png"  HorizontalOptions="EndAndExpand" Clicked="pickupphoto_clicked" BorderColor="Silver" BorderWidth="1"/>
+     <StackLayout  Orientation="Horizontal"   Padding="0,5,0,0" >
+                <Button x:Name="textdection"   Text ="Detect text"  Image="ic_cloud.png" HorizontalOptions="StartAndExpand" Clicked="detect_clicked" BorderColor="Silver" BorderWidth="1"/>
+                <Label x:Name="chinesetoeng" Text="CHN" FontSize="Small"></Label>
+                <Switch x:Name="useDefaults" IsToggled="False" ></Switch>
+                <Label x:Name="engtochinese" Text="ENG" FontSize="Small"></Label>
+                <Button x:Name="readoriginaltext"       Text ="Read"      Image="ic_settings_voice.png"  HorizontalOptions="EndAndExpand" Clicked="readorig_clicked" BorderColor="Silver" BorderWidth="1"/>
 
      </StackLayout>
-            <!--default Chinese to Text-->
-            <StackLayout Orientation="Horizontal" >
-                <Label x:Name="chinesetoeng" Text="Detect Chinese" ></Label>
-                <Switch x:Name="useDefaults" IsToggled="False" ></Switch>
-                <Label x:Name="engtochinese" Text="English"></Label>
-            </StackLayout>
+       
             <!-- textfrompicture -->  
       <Editor x:Name="detecttexteditor"
             Text="Text detected from picture will show here"
             TextColor="Green"
               BackgroundColor="Black"
-            HeightRequest="140"  />
+            HeightRequest="180"  />
      <StackLayout  Orientation="Horizontal"  >
-                <Button x:Name="translate"       Text ="Translate"      Image="ic_translate.png" HorizontalOptions="StartAndExpand" Clicked="pickupphoto_clicked" BorderColor="Silver" BorderWidth="1"/>
-                <Button x:Name="readtranstext"       Text ="Read"      Image="ic_settings_voice.png" HorizontalOptions="EndAndExpand"  Clicked="pickupphoto_clicked" BorderColor="Silver" BorderWidth="1"/>
+                <Button x:Name="translate"       Text ="Translate"      Image="ic_translate.png" HorizontalOptions="StartAndExpand" Clicked="translatebtn_clicked" BorderColor="Silver" BorderWidth="1"/>
+                <Button x:Name="readtranstext"       Text ="Read"      Image="ic_settings_voice.png" HorizontalOptions="EndAndExpand"  Clicked="readtarget_clicked" BorderColor="Silver" BorderWidth="1"/>
      </StackLayout>
      <!-- text for translated text -->
      <Editor x:Name="translatetexteditor"
               Text="Translated text will show here"   
               TextColor="Green"
              BackgroundColor="Black"
-              HeightRequest="140"/>
+              HeightRequest="180"/>
    </StackLayout>
 
 

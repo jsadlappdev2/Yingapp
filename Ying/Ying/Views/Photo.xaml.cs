@@ -20,6 +20,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using static Newtonsoft.Json.JsonConvert;
 using Plugin.TextToSpeech.Abstractions;
+using Plugin.TextToSpeech;
 
 
 
@@ -147,16 +148,115 @@ namespace Ying
 
         }
 
+        async void translatebtn_clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                //get source text and target language
+
+                //use default Chinese to English
+
+                string target_lag = "";
+                if (useDefaults.IsToggled)
+                {
+
+                    target_lag = "zh-CN";
+                }
+                else
+                {
+                    target_lag = "en";
+
+                }
+
+                googleapiservice.GoogleTranSource newItem = new googleapiservice.GoogleTranSource
+                {
+                    q = detecttexteditor.Text.Trim(),
+                    target = target_lag
+           
+                };
+
+                string result = "";
+                result = await googleapiservice.GoogleTranslateAsync(newItem);
+                // await DisplayAlert("Alert", "Google translate API execute result: " + result.ToString(), "OK");
+                translatetexteditor.Text = result;
+
+
+
+            }
+            catch (Exception ee)
+            {
+                await DisplayAlert("Alert", "Google translate API execute Error: " + ee.Message.ToString(), "OK");
+
+            }
+
+
+        }
+
+        async void readorig_clicked(object sender, EventArgs e)
+
+        {
+            string read_lang = "";
+            if (useDefaults.IsToggled)
+            {
+
+                read_lang = "zh-CN";
+            }
+            else
+            {
+                read_lang = "en";
+
+            }
+
+            var locales = CrossTextToSpeech.Current.GetInstalledLanguages();
+            if (Device.RuntimePlatform == Device.Android)
+               locale = locales.FirstOrDefault(l => l.ToString() == read_lang);
+             //   locale = new CrossLocale { Language = read_lang };
+            else
+                locale = new CrossLocale { Language = read_lang };//fine for iOS/WP
+            // CrossTextToSpeech.Current.Speak(TextLabel.Text.ToString());
+            CrossTextToSpeech.Current.Speak(detecttexteditor.Text.ToString(),                             
+                                   crossLocale: locale);
+
+
+        }
+
+        async void readtarget_clicked(object sender, EventArgs e)
+
+        {
+            string read_lang = "";
+            if (useDefaults.IsToggled)
+            {
+
+                read_lang = "zh-CN";
+            }
+            else
+            {
+                read_lang = "en";
+
+            }
+
+            var locales = CrossTextToSpeech.Current.GetInstalledLanguages();
+            if (Device.RuntimePlatform == Device.Android)
+                locale = locales.FirstOrDefault(l => l.ToString() == read_lang);
+               // locale = new CrossLocale { Language = read_lang };
+            else
+                locale = new CrossLocale { Language = read_lang };//fine for iOS/WP
+            // CrossTextToSpeech.Current.Speak(TextLabel.Text.ToString());
+            CrossTextToSpeech.Current.Speak(translatetexteditor.Text.ToString(),
+                                   crossLocale: locale);
+
+        }
+
         private async void takephoto_clicked(object sender, EventArgs e)
         {
 
-            corpimage.IsVisible = false;
+            //corpimage.IsVisible = false;
             await TakePicture();
         }
 
         private async void pickupphoto_clicked(object sender, EventArgs e)
         {
-            corpimage.IsVisible = false;
+          //  corpimage.IsVisible = false;
             await SelectPicture();
         }
 
@@ -169,8 +269,8 @@ namespace Ying
                 if (App.CroppedImage != null)
                 {
                     Stream stream = new MemoryStream(App.CroppedImage);
-                    corpimage.Source = ImageSource.FromStream(() => stream);
-                    corpimage.IsVisible = true;
+                  //  corpimage.Source = ImageSource.FromStream(() => stream);
+                    //corpimage.IsVisible = true;
 
                 }
             }

@@ -33,7 +33,7 @@ namespace Ying
 
           //  MainPage = new HomePage();
        
-         MainPage = new NavigationPage(new HomePage());
+         MainPage = new NavigationPage(new HomePage { Title = "Learn Chinese with Ying" });
 
 
         }
