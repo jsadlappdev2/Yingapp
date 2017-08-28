@@ -330,7 +330,9 @@ namespace Ying
             {
                 var mediaFile = await this._mediaPicker.TakePhotoAsync(new StoreCameraMediaOptions
                 {
-                    DefaultCamera = CameraDevice.Front
+                    DefaultCamera = CameraDevice.Rear,
+                    PhotoSize = PhotoSize.Custom,
+                    CustomPhotoSize = 20 //Resize to 20% of original
                 });
 
                 _imageSource = ImageSource.FromStream(mediaFile.GetStream);

@@ -60,6 +60,8 @@ namespace Ying
 
             }
 
+            googleapiservice = new DataService.googleapiservice();
+
 
         }
 
@@ -84,6 +86,168 @@ namespace Ying
                 nameButtonStart.IsEnabled = true;
             }
         }
+
+
+        async void translatebtndroid_clicked(object sender, EventArgs e)
+        {
+            if (indicatordroid.IsRunning) return;   
+            try
+            {
+
+                indicatordroid.IsRunning = true;
+                indicatordroid.IsVisible = true;
+                //get source text and target language
+
+                //use default Chinese to English
+
+                string target_lag = "";
+                target_lag = "zh-CN";
+
+                string textsource = "";
+                if (Device.RuntimePlatform == Device.Android)
+                {
+                    textsource = textLabelDroid.Text.Trim();
+                }
+                else if (Device.RuntimePlatform == Device.iOS)
+                {
+                    textsource = textLabeliOS.Text.Trim();
+
+                }
+
+                googleapiservice.GoogleTranSource newItem = new googleapiservice.GoogleTranSource
+                {
+                    
+
+                    q = textsource,
+                    target = target_lag
+                 
+
+                };
+
+                string result = "";
+                result = await googleapiservice.GoogleTranslateAsync(newItem);
+                // await DisplayAlert("Alert", "Google translate API execute result: " + result.ToString(), "OK");
+             
+               
+                    translatetexteditordroid.Text = result;
+               
+
+
+
+            }
+            catch (Exception ee)
+            {
+                await DisplayAlert("Alert", "Google translate API execute Error: " + ee.Message.ToString(), "OK");
+
+            }
+
+            indicatordroid.IsRunning = false;
+            indicatordroid.IsVisible = false;
+
+
+        }
+
+
+        async void translatebtnios_clicked(object sender, EventArgs e)
+        {
+            if (indicatorios.IsRunning) return;
+
+            try
+            {
+
+                indicatorios.IsRunning = true;
+                indicatorios.IsVisible = true;
+                //get source text and target language
+
+                //use default Chinese to English
+
+                string target_lag = "";
+                target_lag = "zh-CN";
+
+                string textsource = "";
+                if (Device.RuntimePlatform == Device.Android)
+                {
+                    textsource = textLabelDroid.Text.Trim();
+                }
+                else if (Device.RuntimePlatform == Device.iOS)
+                {
+                    textsource = textLabeliOS.Text.Trim();
+
+                }
+
+                googleapiservice.GoogleTranSource newItem = new googleapiservice.GoogleTranSource
+                {
+
+
+                    q = textsource,
+                    target = target_lag
+
+
+                };
+
+                string result = "";
+                result = await googleapiservice.GoogleTranslateAsync(newItem);
+                // await DisplayAlert("Alert", "Google translate API execute result: " + result.ToString(), "OK");
+
+
+                translatetexteditorios.Text = result;
+
+
+
+
+            }
+            catch (Exception ee)
+            {
+                await DisplayAlert("Alert", "Google translate API execute Error: " + ee.Message.ToString(), "OK");
+
+            }
+
+            indicatorios.IsRunning = false;
+            indicatorios.IsVisible = false;
+
+
+        }
+
+
+        async void readdroid_clicked(object sender, EventArgs e)
+
+        {
+            
+          
+
+            var locales = CrossTextToSpeech.Current.GetInstalledLanguages();
+            if (Device.RuntimePlatform == Device.Android)
+                locale = locales.FirstOrDefault(l => l.ToString() == "zh-CN");        
+            else
+                locale = new CrossLocale { Language = "zh-CN" };//fine for iOS/WP
+            // CrossTextToSpeech.Current.Speak(TextLabel.Text.ToString());
+            CrossTextToSpeech.Current.Speak(translatetexteditordroid.Text.ToString(),
+                                   crossLocale: locale);
+
+
+        }
+
+
+
+        async void readios_clicked(object sender, EventArgs e)
+
+        {
+
+
+
+            var locales = CrossTextToSpeech.Current.GetInstalledLanguages();
+            if (Device.RuntimePlatform == Device.Android)
+                locale = locales.FirstOrDefault(l => l.ToString() == "zh-CN");
+            else
+                locale = new CrossLocale { Language = "zh-CN" };//fine for iOS/WP
+            // CrossTextToSpeech.Current.Speak(TextLabel.Text.ToString());
+            CrossTextToSpeech.Current.Speak(translatetexteditorios.Text.ToString(),
+                                   crossLocale: locale);
+
+
+        }
+
+
 
 
 

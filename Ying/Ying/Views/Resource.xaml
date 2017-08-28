@@ -4,9 +4,18 @@
              x:Class="Ying.Views.Resource"
               Title="Resource"
              Icon="ic_business_center.png">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Resource Forms!" />
-        </StackLayout>
-    </ContentPage.Content>
+   
+        <AbsoluteLayout>
+            <Image x:Name="BgImage" Source="panda.PNG"
+               Aspect="AspectFill"
+               AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+               AbsoluteLayout.LayoutFlags="All"/>
+            <StackLayout Orientation="Vertical" 
+                         AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                         AbsoluteLayout.LayoutFlags="All" 
+                         HorizontalOptions="Center">
+                <Label Text="Under developing!" />
+            </StackLayout>
+        </AbsoluteLayout>
+ 
 </ContentPage>
