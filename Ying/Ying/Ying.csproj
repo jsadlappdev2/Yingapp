@@ -36,7 +36,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="DataService\EventArgsVoiceRecognition.cs" />
     <Compile Include="DataService\GoogleAPIServices.cs" />
+    <Compile Include="Interface\ISpeechToText.cs" />
     <Compile Include="Views\CropView.cs" />
     <Compile Include="Views\Help.xaml.cs">
       <DependentUpon>Help.xaml</DependentUpon>
@@ -118,7 +120,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interface\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

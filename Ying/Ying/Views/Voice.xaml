@@ -5,11 +5,40 @@
              Title="Speak"
              Icon="ic_settings_voice.png">
     <ContentPage.Content>
-        <StackLayout>
-            <Button x:Name="takephoto" Text="Take Photo" Clicked="takephoto_clicked"></Button>
-            <Button x:Name="pickupphoto" Text="Pickup Photo" Clicked="pickupphoto_clicked"></Button>
-            <Image x:Name="corpimage" HeightRequest="100" WidthRequest="100"></Image>
+        
+        <StackLayout x:Name="iOSLayout" Orientation="Vertical"  IsVisible="False">
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="nameButtonStart" Text="Start" Clicked="OnStart"> </Button>
+                <Button IsEnabled="false" x:Name="nameButtonStop" Text="Stop" Clicked="OnStop"></Button>
+            </StackLayout>
+            <Label HorizontalOptions="CenterAndExpand"  x:Name="textLabeliOS" Text="Text Will Appear here" ></Label>
+            <StackLayout  Orientation="Horizontal"  >
+                <Button x:Name="translate"       Text ="Translate"      Image="ic_translate.png" HorizontalOptions="StartAndExpand"  BorderColor="Silver" BorderWidth="1"/>
+                <Button x:Name="readtranstext"       Text ="Read"      Image="ic_settings_voice.png" HorizontalOptions="EndAndExpand"  BorderColor="Silver" BorderWidth="1"/>
+            </StackLayout>
+            <!-- text for translated text -->
+            <Editor x:Name="translatetexteditor"
+              Text="Translated text will show here"   
+              TextColor="Green"
+             BackgroundColor="Black"
+              HeightRequest="180"/>
+
         </StackLayout>
+        <StackLayout x:Name="androidLayout" Orientation="Vertical"  IsVisible="False">
+            <local:VoiceButton  x:Name="voiceButton" Text="Record Voice" IsVisible="true" />
+            <Label HorizontalOptions="CenterAndExpand"  x:Name="textLabelDroid" Text="Text Will Appear here" ></Label>
+            <StackLayout  Orientation="Horizontal"  >
+                <Button x:Name="translate"       Text ="Translate"      Image="ic_translate.png" HorizontalOptions="StartAndExpand" BorderColor="Silver" BorderWidth="1"/>
+                <Button x:Name="readtranstext"       Text ="Read"      Image="ic_settings_voice.png" HorizontalOptions="EndAndExpand"  BorderColor="Silver" BorderWidth="1"/>
+            </StackLayout>
+            <!-- text for translated text -->
+            <Editor x:Name="translatetexteditor"
+              Text="Translated text will show here"   
+              TextColor="Green"
+             BackgroundColor="Black"
+              HeightRequest="180"/>
+        </StackLayout>
+
 
     </ContentPage.Content>
 </ContentPage>

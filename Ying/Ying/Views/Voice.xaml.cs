@@ -11,123 +11,84 @@ using Plugin.Media.Abstractions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 using Ying;
 using Ying.Views;
+using Ying.Interface;
+using Ying.DataService;
+
+
+using Plugin.TextToSpeech;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using static Newtonsoft.Json.JsonConvert;
+using Plugin.TextToSpeech.Abstractions;
+
 
 namespace Ying
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Voice : ContentPage
     {
-        ImageSource _imageSource;
-        private IMedia _mediaPicker;
+        public delegate ContentPage GetEditorInstance(string InitialEditorText);
+        static public GetEditorInstance EditorFactory;
+        static ISpeechToText speechRecognitionInstnace;
+
+        //for translate
+        static CrossLocale? locale = null;
+        DataService.googleapiservice googleapiservice;
+        List<googleapiservice.GoogleTranSource> source;
+
 
         public Voice()
         {
             InitializeComponent();
-
-        }
-
-
-        private async void takephoto_clicked(object sender, EventArgs e)
-        {
-
-            await TakePicture();
-        }
-
-        private async void pickupphoto_clicked(object sender, EventArgs e)
-        {
-
-            await SelectPicture();
-        }
-
-
-
-        private void Refresh()
-        {
-            try
+            if (Device.RuntimePlatform == Device.Android)
             {
-                if (App.CroppedImage != null)
+                androidLayout.IsVisible = true;
+                voiceButton.OnTextChanged += (s) =>
                 {
-                    Stream stream = new MemoryStream(App.CroppedImage);
-                    corpimage.Source = ImageSource.FromStream(() => stream);
-
-                }
+                    textLabelDroid.Text = s;
+                };
             }
-            catch (Exception ex)
+            else if (Device.RuntimePlatform == Device.iOS)
             {
-                Debug.WriteLine(ex.Message);
+                iOSLayout.IsVisible = true;
+                this.Content = iOSLayout;
+                speechRecognitionInstnace = DependencyService.Get<ISpeechToText>();
+                speechRecognitionInstnace.textChanged += OnTextChange;
+
             }
+
+
         }
 
-        #region Photos
-
-        private async void Setup()
+        public void OnStart(Object sender, EventArgs args)
         {
-            if (_mediaPicker != null)
-            {
-                return;
-            }
-
-            ////RM: hack for working on windows phone? 
-            await CrossMedia.Current.Initialize();
-            _mediaPicker = CrossMedia.Current;
+            speechRecognitionInstnace.Start();
+            nameButtonStart.IsEnabled = false;
+            nameButtonStop.IsEnabled = true;
         }
-
-        private async Task SelectPicture()
+        public void OnStop(Object sender, EventArgs args)
         {
-            Setup();
+            speechRecognitionInstnace.Stop();
+            nameButtonStart.IsEnabled = true;
+            nameButtonStop.IsEnabled = false;
 
-            _imageSource = null;
-
-            try
-            {
-
-                var mediaFile = await this._mediaPicker.PickPhotoAsync();
-
-                _imageSource = ImageSource.FromStream(mediaFile.GetStream);
-
-                var memoryStream = new MemoryStream();
-                await mediaFile.GetStream().CopyToAsync(memoryStream);
-                byte[] imageAsByte = memoryStream.ToArray();
-
-                await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));
-
-            }
-            catch (System.Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
         }
-
-        private async Task TakePicture()
+        public void OnTextChange(object sender, EventArgsVoiceRecognition e)
         {
-            Setup();
-
-            _imageSource = null;
-
-            try
+            textLabeliOS.Text = e.Text;
+            if (e.IsFinal)
             {
-                var mediaFile = await this._mediaPicker.TakePhotoAsync(new StoreCameraMediaOptions
-                {
-                    DefaultCamera = CameraDevice.Front
-                });
-
-                _imageSource = ImageSource.FromStream(mediaFile.GetStream);
-
-                var memoryStream = new MemoryStream();
-                await mediaFile.GetStream().CopyToAsync(memoryStream);
-                byte[] imageAsByte = memoryStream.ToArray();
-
-                await Navigation.PushModalAsync(new CropView(imageAsByte, Refresh));
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
+                nameButtonStart.IsEnabled = true;
             }
         }
 
-        #endregion
+
+
+
+
     }
 }
 
