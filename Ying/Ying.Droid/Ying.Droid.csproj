@@ -188,6 +188,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Renderer\ActivityResultEventArgs.cs" />
     <Compile Include="Renderer\CustomTabRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainApplication.cs" />

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Views;
@@ -8,6 +11,7 @@ using Xamarin.Forms.Platform.Android;
 using Ying;
 using Ying.Droid;
 using Ying.Droid.Renderer;
+using Ying.DataService;
 
 [assembly: ExportRenderer(typeof(VoiceButton), typeof(VoiceButtonRenderer))]
 namespace Ying.Droid.Renderer

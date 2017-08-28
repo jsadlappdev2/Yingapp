@@ -26,6 +26,8 @@ namespace Ying.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Plugin.TextToSpeech.Resource.String.ApplicationName = global::Ying.Droid.Resource.String.ApplicationName;
+			global::Plugin.TextToSpeech.Resource.String.Hello = global::Ying.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Ying.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -3823,6 +3825,12 @@ namespace Ying.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f0b0047
+			public const int ApplicationName = 2131427399;
+			
+			// aapt resource value: 0x7f0b0046
+			public const int Hello = 2131427398;
 			
 			// aapt resource value: 0x7f0b0015
 			public const int abc_action_bar_home_description = 2131427349;
