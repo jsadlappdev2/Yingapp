@@ -4,8 +4,27 @@
              x:Class="Ying.Views.Resource"
               Title="Resource"
              Icon="ic_business_center.png">
-   
-        <AbsoluteLayout>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="labelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#a8a8a8" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+            <Style x:Key="fieldStyle" TargetType="Label">
+                <Setter Property="TextColor">
+                    <OnPlatform x:TypeArguments="Color" iOS="Black" Android="White" WinPhone="White" />
+                </Setter>
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+            <Style x:Key="fieldView" TargetType="ContentView">
+                <Setter Property="Padding" Value="10,0,0,0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <AbsoluteLayout>
             <Image x:Name="BgImage" Source="panda.PNG"
                Aspect="AspectFill"
                AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
@@ -14,8 +33,55 @@
                          AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
                          AbsoluteLayout.LayoutFlags="All" 
                          HorizontalOptions="Center">
-                <Label Text="Under developing!" />
+            <!-- search bar -->
+              <StackLayout  AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, .1"
+                            AbsoluteLayout.LayoutFlags="All" 
+                            Orientation="Horizontal">
+                   <Entry x:Name="searchentry" Text="Please input some key words"
+                            AbsoluteLayout.LayoutBounds="0.0, 0.0, .7, .1"
+                            AbsoluteLayout.LayoutFlags="All" />
+                   <Button x:Name="searchbtn" Text="Search" Image="ic_youtube_searched.png" TextColor="Green" BorderColor="Green" BorderWidth="1"
+                            Clicked="searchresource"
+                            AbsoluteLayout.LayoutBounds="0.0, 0.0, .3, .1"
+                            AbsoluteLayout.LayoutFlags="All"/>
             </StackLayout>
+            <!--data lists-->
+               <StackLayout  AbsoluteLayout.LayoutBounds="0.1, 0.0, 1.0, .9"
+                             AbsoluteLayout.LayoutFlags="All" >
+                   
+                <ListView x:Name="resourceList"
+                      HasUnevenRows="True"
+                      RowHeight="66">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                
+                                <ViewCell.ContextActions>
+                                    <MenuItem Clicked="onplay" CommandParameter="{Binding .}" Text="Go" />
+                                </ViewCell.ContextActions>
+
+                                <StackLayout Orientation="Horizontal" Padding="10,0,0,0" >
+                                    <Image HeightRequest="44" 
+                                           WidthRequest="44" 
+                                           Source="{Binding icon}"/>
+                                    <StackLayout Padding="10" Spacing="5">
+                                        <Label x:Name ="Templable" Text="{Binding description}"
+                                                TextColor="#3498db"
+                                                Style="{DynamicResource ListItemTextStyle}"/>
+                                        <Label Text="{Binding url}" 
+                                                Style="{DynamicResource ListItemDetailTextStyle}"/>
+                                    </StackLayout>
+                                </StackLayout>                
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+            </StackLayout>
+
+
+        </StackLayout>
         </AbsoluteLayout>
  
 </ContentPage>

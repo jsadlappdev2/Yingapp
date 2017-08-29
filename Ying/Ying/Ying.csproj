@@ -38,6 +38,7 @@
     <Compile Include="App.cs" />
     <Compile Include="DataService\EventArgsVoiceRecognition.cs" />
     <Compile Include="DataService\GoogleAPIServices.cs" />
+    <Compile Include="DataService\QueryResouces.cs" />
     <Compile Include="DataService\VoiceButton.cs" />
     <Compile Include="Interface\ISpeechToText.cs" />
     <Compile Include="Views\CropView.cs" />
