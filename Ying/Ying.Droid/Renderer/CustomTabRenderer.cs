@@ -66,14 +66,14 @@ namespace Ying.Droid
 
 
                 ActionBar.Tab tabThree = actionBar.GetTabAt(2);
-                tabThree.SetText("Stroke");
-                tabThree.SetIcon(Resource.Drawable.ic_text_fields);
+                tabThree.SetText("Resource");
+                tabThree.SetIcon(Resource.Drawable.ic_business_center);
 
 
 
                 ActionBar.Tab tabFour = actionBar.GetTabAt(3);
-                tabFour.SetText("Resource");
-                tabFour.SetIcon(Resource.Drawable.ic_business_center);
+                tabFour.SetText("Stroke");
+                tabFour.SetIcon(Resource.Drawable.ic_text_fields);
 
 
                 ActionBar.Tab tabFive = actionBar.GetTabAt(4);

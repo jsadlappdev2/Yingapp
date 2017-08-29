@@ -8,8 +8,8 @@
     <TabbedPage.Children>
         <mypages:Photo/>
         <mypages:Voice />
-        <mypages2:Stroke/>
         <mypages2:Resource/>
+        <mypages2:Stroke/>
         <mypages2:Help/>
 
 
