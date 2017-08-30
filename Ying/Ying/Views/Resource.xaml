@@ -36,31 +36,37 @@
             <!-- search bar -->
               <StackLayout  AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, .1"
                             AbsoluteLayout.LayoutFlags="All" 
-                            Orientation="Horizontal">
-                   <Entry x:Name="searchentry" Text="Please input some key words"
+                            Orientation="Horizontal"
+                            Padding="0,10,0,0">
+                <Entry x:Name="searchentry" Placeholder="please input key words for search"
                             AbsoluteLayout.LayoutBounds="0.0, 0.0, .7, .1"
-                            AbsoluteLayout.LayoutFlags="All" />
+                            AbsoluteLayout.LayoutFlags="All"
+                       />
                    <Button x:Name="searchbtn" Text="Search" Image="ic_youtube_searched.png" TextColor="Green" BorderColor="Green" BorderWidth="1"
                             Clicked="searchresource"
-                            AbsoluteLayout.LayoutBounds="0.0, 0.0, .3, .1"
-                            AbsoluteLayout.LayoutFlags="All"/>
+                            HorizontalOptions="EndAndExpand"/>
             </StackLayout>
             <!--data lists-->
                <StackLayout  AbsoluteLayout.LayoutBounds="0.1, 0.0, 1.0, .9"
                              AbsoluteLayout.LayoutFlags="All" >
-                   
+                <ListView.SeparatorColor>
+                    <OnPlatform x:TypeArguments="Color" iOS="Transparent"/>
+                </ListView.SeparatorColor>
                 <ListView x:Name="resourceList"
                       HasUnevenRows="True"
-                      RowHeight="66">
+                      RowHeight="66"
+                  
+                     IsPullToRefreshEnabled="True"
+                     Refreshing="RefreshData">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 
                                 <ViewCell.ContextActions>
-                                    <MenuItem Clicked="onplay" CommandParameter="{Binding .}" Text="Go" />
+                                    <MenuItem Clicked="onplay" CommandParameter="{Binding .}" Text="Play" />
                                 </ViewCell.ContextActions>
 
-                                <StackLayout Orientation="Horizontal" Padding="10,0,0,0" >
+                                <StackLayout Orientation="Horizontal" Padding="10,2,0,0" >
                                     <Image HeightRequest="44" 
                                            WidthRequest="44" 
                                            Source="{Binding icon}"/>

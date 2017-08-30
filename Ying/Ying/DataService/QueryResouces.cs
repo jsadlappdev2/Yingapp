@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Xamarin.Forms;
+using System.Windows.Input;
 
 namespace Ying.DataService
 {
@@ -32,7 +34,7 @@ namespace Ying.DataService
         /// <returns>The resource items async.</returns>
         public async Task<List<ResourceItem>> GetResourceItemByDescsAsync(string desc)
         {
-            string url = "http://localhost:60761/api/ying_urls/Querybydesc?desc=" + desc;
+            string url = "http://18.220.1.200/api/ying_urls/Querybydesc?desc=" + desc;
 
 
             var response = await client.GetStringAsync(url);
@@ -53,6 +55,8 @@ namespace Ying.DataService
             public string icon { get; set; }
 
         }
+
+
 
 
 

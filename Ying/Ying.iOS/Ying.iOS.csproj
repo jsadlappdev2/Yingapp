@@ -283,13 +283,13 @@
     <BundleResource Include="Resources\panda.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ic_youtube_searched_for_3x.png" />
+    <BundleResource Include="Resources\ic_youtube_searched_3x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ic_youtube_searched_for.png" />
+    <BundleResource Include="Resources\ic_youtube_searched.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ic_youtube_searched_for_2x.png" />
+    <BundleResource Include="Resources\ic_youtube_searched_2x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_play_circle_outline.png" />

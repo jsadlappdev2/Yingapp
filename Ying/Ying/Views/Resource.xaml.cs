@@ -22,12 +22,16 @@ namespace Ying.Views
         {
             InitializeComponent();
             queryresources = new DataService.QueryResouces();
+            RefreshData();
+
         }
 
         async void RefreshData()
         {
             items = await queryresources.GetResourceItemsAsync();
             resourceList.ItemsSource = items.OrderBy(item => item.type).ThenBy(item => item.id).ToList();
+            //make sure to end the refresh state
+            resourceList.IsRefreshing = false;
         }
 
 
