@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Ying.DataService;
+using static Ying.DataService.QueryResouces;
 
 namespace Ying.Views
 {
@@ -44,13 +45,25 @@ namespace Ying.Views
 
         public async void onplay(object sender, EventArgs e)
         {
-            //var mi = ((MenuItem)sender);
-            //TodoItem itemToDelete = (TodoItem)mi.CommandParameter;
-            ////int itemIndex = items.IndexOf(itemToDelete);
-            //int itemIndex = itemToDelete.id;
+            var mi = ((MenuItem)sender);
+            ResourceItem navigateimte = (ResourceItem)mi.CommandParameter;
+            string itemtype = navigateimte.type;
+            string url = navigateimte.url;
 
             //await dataService.DeleteTodoItemAsync(itemIndex);
-            RefreshData();
+            if (itemtype == "web")
+            {
+                new NavigationPage(new Webview(url));
+
+            }
+
+
+            else 
+            {
+                new NavigationPage(new PlayAudio(url));
+
+            }   ;
+
         }
 
     }

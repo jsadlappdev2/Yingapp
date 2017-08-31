@@ -52,6 +52,12 @@
       <DependentUpon>Photo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\PlayAudio.xaml.cs">
+      <DependentUpon>PlayAudio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayVideo.xaml.cs">
+      <DependentUpon>PlayVideo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Resource.xaml.cs">
       <DependentUpon>Resource.xaml</DependentUpon>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Views\Voice.xaml.cs">
       <DependentUpon>Voice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Webview.xaml.cs">
+      <DependentUpon>Webview.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +150,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Help.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Webview.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\PlayVideo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\PlayAudio.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

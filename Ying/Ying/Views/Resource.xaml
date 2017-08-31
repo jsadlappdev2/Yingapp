@@ -63,18 +63,21 @@
                             <ViewCell>
                                 
                                 <ViewCell.ContextActions>
-                                    <MenuItem Clicked="onplay" CommandParameter="{Binding .}" Text="Play" />
+                                    <MenuItem Clicked="onplay" CommandParameter="{Binding .}" Text="Go and Play!" />
                                 </ViewCell.ContextActions>
 
                                 <StackLayout Orientation="Horizontal" Padding="10,2,0,0" >
-                                    <Image HeightRequest="44" 
-                                           WidthRequest="44" 
+                                    <Image HeightRequest="30" 
+                                           WidthRequest="30" 
                                            Source="{Binding icon}"/>
+                                    
                                     <StackLayout Padding="10" Spacing="5">
                                         <Label x:Name ="Templable" Text="{Binding description}"
                                                 TextColor="#3498db"
                                                 Style="{DynamicResource ListItemTextStyle}"/>
-                                        <Label Text="{Binding url}" 
+                                        <Label x:Name="urlLabel" Text="{Binding url}" 
+                                                Style="{DynamicResource ListItemDetailTextStyle}"/>
+                                        <Label x:Name="typeLabel" Text="{Binding type} " 
                                                 Style="{DynamicResource ListItemDetailTextStyle}"/>
                                     </StackLayout>
                                 </StackLayout>                
