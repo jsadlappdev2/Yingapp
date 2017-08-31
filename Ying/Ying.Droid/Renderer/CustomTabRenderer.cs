@@ -70,13 +70,7 @@ namespace Ying.Droid
                 tabThree.SetIcon(Resource.Drawable.ic_business_center);
 
 
-
-                ActionBar.Tab tabFour = actionBar.GetTabAt(3);
-                tabFour.SetText("Stroke");
-                tabFour.SetIcon(Resource.Drawable.ic_text_fields);
-
-
-                ActionBar.Tab tabFive = actionBar.GetTabAt(4);
+                ActionBar.Tab tabFive = actionBar.GetTabAt(3);
                 tabFive.SetText("Help");
                 tabFive.SetIcon(Resource.Drawable.ic_help);
 

@@ -12,10 +12,10 @@ namespace Ying.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PlayAudio : ContentPage
     {
-        public PlayAudio(string URL)
+        public PlayAudio()
         {
             InitializeComponent();
-            audio.Source = URL;
+           // audio.Source = URL;
         }
     }
 }

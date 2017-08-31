@@ -252,12 +252,21 @@ namespace Ying
 
             //corpimage.IsVisible = false;
             await TakePicture();
+
+      
+
+
+
         }
 
         private async void pickupphoto_clicked(object sender, EventArgs e)
         {
           //  corpimage.IsVisible = false;
             await SelectPicture();
+
+          
+
+
         }
 
 

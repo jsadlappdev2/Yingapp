@@ -53,14 +53,16 @@ namespace Ying.Views
             //await dataService.DeleteTodoItemAsync(itemIndex);
             if (itemtype == "web")
             {
-                new NavigationPage(new Webview(url));
+               // new NavigationPage(new Webview(url));
+               await Navigation.PushAsync(new Webview(url));
 
             }
 
 
             else 
             {
-                new NavigationPage(new PlayAudio(url));
+                //new NavigationPage(new PlayAudio());
+                await Navigation.PushAsync(new PlayAudio());
 
             }   ;
 

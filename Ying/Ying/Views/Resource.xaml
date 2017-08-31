@@ -76,9 +76,9 @@
                                                 TextColor="#3498db"
                                                 Style="{DynamicResource ListItemTextStyle}"/>
                                         <Label x:Name="urlLabel" Text="{Binding url}" 
-                                                Style="{DynamicResource ListItemDetailTextStyle}"/>
+                                                Style="{DynamicResource ListItemDetailTextStyle}" IsVisible="False"/>
                                         <Label x:Name="typeLabel" Text="{Binding type} " 
-                                                Style="{DynamicResource ListItemDetailTextStyle}"/>
+                                                Style="{DynamicResource ListItemDetailTextStyle}" IsVisible="False"/>
                                     </StackLayout>
                                 </StackLayout>                
                             </ViewCell>

@@ -14,7 +14,7 @@
                          AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
                          AbsoluteLayout.LayoutFlags="All" 
                          HorizontalOptions="Center">
-                <Label Text="Under developing!" />
+               
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>

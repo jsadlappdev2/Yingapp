@@ -1,14 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:inthehand ="clr-namespace:InTheHand.Forms;assembly=InTheHand.Forms"
-             x:Class="Ying.Views.PlayAudio">
-    <ContentPage.Content>
-        <StackLayout>
-            <inthehand:MediaElement x:Name="audio"
-                       HorizontalOptions="Fill"
-                       AreTransportControlsEnabled="true"
-                       AutoPlay="True"/>
-        </StackLayout>
-    </ContentPage.Content>
+             xmlns:local="clr-namespace:Ying"
+             xmlns:forms="clr-namespace:InTheHand.Forms;assembly=InTheHand.Forms"
+             x:Class="Ying.Views.PlayAudio"
+      >
+    <StackLayout>
+        <forms:MediaElement HorizontalOptions="Fill" VerticalOptions="Center" HeightRequest="240" x:Name="Media" AreTransportControlsEnabled="true" Source="https://youtu.be/mDczaSEIvC8"/>
+    </StackLayout>
 </ContentPage>
