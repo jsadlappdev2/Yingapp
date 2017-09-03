@@ -62,7 +62,7 @@ namespace Ying.Views
             else 
             {
                 //new NavigationPage(new PlayAudio());
-                await Navigation.PushAsync(new PlayAudio());
+                await Navigation.PushAsync(new PlayVideo(url));
 
             }   ;
 

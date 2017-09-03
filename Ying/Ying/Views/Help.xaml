@@ -14,6 +14,8 @@
                          AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
                          AbsoluteLayout.LayoutFlags="All" 
                          HorizontalOptions="Center">
+                <Button x:Name="checkwifi" Text="Check WIFI Status" Clicked="checkwifistatus"></Button>
+                <Label x:Name="wifialter" Text=""></Label>
                
             </StackLayout>
         </AbsoluteLayout>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Plugin.Connectivity;
 
 namespace Ying.Views
 {
@@ -16,5 +17,20 @@ namespace Ying.Views
         {
             InitializeComponent();
         }
-    }
+
+        async void checkwifistatus(object sender, EventArgs e)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                wifialter.Text = "You have connected to WIFI!";
+            }
+            else
+            {
+                wifialter.Text = "You didn't connect to WIFI!";
+            }
+
+        }
+
+
+     }
 }
