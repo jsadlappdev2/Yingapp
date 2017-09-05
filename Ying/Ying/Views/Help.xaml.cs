@@ -23,10 +23,12 @@ namespace Ying.Views
             if (CrossConnectivity.Current.IsConnected)
             {
                 wifialter.Text = "You have connected to WIFI!";
+                wifialter.TextColor = Color.Green;
             }
             else
             {
-                wifialter.Text = "You didn't connect to WIFI!";
+                wifialter.Text = "You didn't connect to WIFI! Please check.";
+                wifialter.TextColor = Color.Red;
             }
 
         }

@@ -5,16 +5,8 @@
              Title="Picture"
              Icon="ic_photo_camera.png">
  <ContentPage.Content>
-        <AbsoluteLayout>
-            <Image x:Name="BgImage" Source="panda.PNG"
-               Aspect="AspectFill"
-               AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
-               AbsoluteLayout.LayoutFlags="All"/>
-            <StackLayout Orientation="Vertical" 
-                         AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
-                         AbsoluteLayout.LayoutFlags="All" 
-                         HorizontalOptions="Center">
-                
+
+        <StackLayout Orientation="Vertical">   
                 <ActivityIndicator x:Name="indicator"   IsRunning="False"   IsVisible="False"   Color="Gray" HorizontalOptions="Center" />
 
                 <!-- photo buttons -->
@@ -44,17 +36,13 @@
                     <Button x:Name="readtranstext"       Text ="Read"      Image="ic_volume_up.png" HorizontalOptions="EndAndExpand"  Clicked="readtarget_clicked" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
                 </StackLayout>
                 <!-- text for translated text -->
-             <!--   <Editor x:Name="translatetexteditor"
+                 <Editor x:Name="translatetexteditor"
                     Text="Translated text will appear here"   
                     TextColor="Green"
-                    HeightRequest="180"/> -->
+                    HeightRequest="180"/>
 
-                <Label x:Name="translatetexteditor"
-                      Text="Translated text will show here"   
-                      TextColor="Green"   
-                      FontSize="Medium" />
 
-            </StackLayout>
-        </AbsoluteLayout>
+        </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

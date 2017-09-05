@@ -24,11 +24,7 @@
     </ContentPage.Resources>
 
 
-    <AbsoluteLayout>
-            <Image x:Name="BgImage" Source="panda.PNG"
-               Aspect="AspectFill"
-               AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
-               AbsoluteLayout.LayoutFlags="All"/>
+   
             <StackLayout Orientation="Vertical" 
                          AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
                          AbsoluteLayout.LayoutFlags="All" 
@@ -91,6 +87,6 @@
 
 
         </StackLayout>
-        </AbsoluteLayout>
+ 
  
 </ContentPage>

@@ -9,16 +9,7 @@
 
             <!--IOS-->
             <StackLayout x:Name="iOSLayout" Orientation="Vertical"  IsVisible="False" Padding="0,5,0,0">
-        <AbsoluteLayout>
-            <Image x:Name="BgImage2" Source="panda.PNG"
-               Aspect="AspectFill"
-               AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
-               AbsoluteLayout.LayoutFlags="All"/>
-
-            <StackLayout Orientation="Vertical" 
-                         AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
-                         AbsoluteLayout.LayoutFlags="All" 
-                         HorizontalOptions="Center">
+       
                 <StackLayout Orientation="Horizontal" Padding="5,5,0,10">
                     <Button x:Name="nameButtonStart" Text="Speak in English" Clicked="OnStart" Image="ic_settings_voice.png" HorizontalOptions="StartAndExpand"      TextColor="Green" BorderColor="Green" BorderWidth="1"></Button>
                     <Button IsEnabled="false" x:Name="nameButtonStop" Text="Stop Speaking" Clicked="OnStop" Image="ic_mic_off.png" HorizontalOptions="EndAndExpand"  TextColor="Green" BorderColor="Green" BorderWidth="1"></Button>
@@ -37,24 +28,14 @@
                      Text="Translated text will show here"   
                      TextColor="Green"      
                      FontSize="Medium" />
-            </StackLayout>
-        </AbsoluteLayout>
+         
     </StackLayout>
     
 
 
     <!-- Android-->
             <StackLayout x:Name="androidLayout" Orientation="Vertical"  IsVisible="False" Padding="0,5,0,0" >
-        <AbsoluteLayout>
-            <Image x:Name="BgImage1" Source="panda.PNG"
-               Aspect="AspectFill"
-               AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
-               AbsoluteLayout.LayoutFlags="All"/>
-
-            <StackLayout Orientation="Vertical" 
-                         AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
-                         AbsoluteLayout.LayoutFlags="All" 
-                         HorizontalOptions="Center">
+       
                 <local:VoiceButton  x:Name="voiceButton" Text="Speak in English" IsVisible="true" Image="ic_settings_voice.png" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
                 <Label HorizontalOptions="CenterAndExpand"  x:Name="textLabelDroid" Text="Text Will Appear here" FontSize="Medium" TextColor="Green" ></Label>
                 <ActivityIndicator x:Name="indicatordroid"   IsRunning="False"   IsVisible="False"   Color="Gray" HorizontalOptions="Center" />
@@ -63,18 +44,14 @@
                     <Button x:Name="readtranstextdroid"       Text ="Read"      Image="ic_volume_up.png" HorizontalOptions="EndAndExpand"  Clicked="readdroid_clicked" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
                 </StackLayout>
                 <!-- text for translated text -->
-              <!--  <Editor x:Name="translatetexteditordroid"
+               <Editor x:Name="translatetexteditordroid"
                    Text="Translated text will show here"   
                    TextColor="Green"   
-                   HeightRequest="250"/> -->
+                   HeightRequest="250"/> 
 
-                <Label x:Name="translatetexteditordroid"
-                      Text="Translated text will show here"   
-                      TextColor="Green"  
-                      FontSize="Medium" />
+             
 
-            </StackLayout>
-    </AbsoluteLayout>
+         
     </StackLayout>
 
 

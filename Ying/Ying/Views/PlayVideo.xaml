@@ -5,10 +5,10 @@
              Title="Play Video">
     <ContentPage.Content>
         <StackLayout>
-            <WebView VerticalOptions="Fill"
-                 HorizontalOptions="Fill"
-                 Source="{Binding VideoSource}"
-            />
+            <WebView x:Name="webview"                
+                     WidthRequest="1000" 
+                     HeightRequest="1000"                 
+                  />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

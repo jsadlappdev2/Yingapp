@@ -21,6 +21,8 @@ using System.Net.Http.Headers;
 using static Newtonsoft.Json.JsonConvert;
 using Plugin.TextToSpeech.Abstractions;
 
+using Plugin.Connectivity;
+
 
 
 
@@ -42,6 +44,23 @@ namespace Ying
             InitializeComponent();
             googleapiservice = new DataService.googleapiservice();
             indicator.IsVisible = false;
+          //  checkwifistatus();
+
+        }
+
+        //check wifi
+        public void checkwifistatus()
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                //wifialter.Text = "You have connected to WIFI!";
+               
+            }
+            else
+            {
+                // wifialter.Text = "You didn't connect to WIFI!";
+                DisplayAlert("Wifi Check", "You didn't connect to WIFI. We suggest you use WIFI!", "OK");
+            }
 
         }
 
