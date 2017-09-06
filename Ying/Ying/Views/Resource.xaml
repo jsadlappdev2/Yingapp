@@ -23,28 +23,18 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
+    <StackLayout Padding="5,5,5,5">
 
-   
-            <StackLayout Orientation="Vertical" 
-                         AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
-                         AbsoluteLayout.LayoutFlags="All" 
-                         HorizontalOptions="Center">
+        <StackLayout Orientation="Horizontal"      >
             <!-- search bar -->
-              <StackLayout  AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, .1"
-                            AbsoluteLayout.LayoutFlags="All" 
-                            Orientation="Horizontal"
-                            Padding="0,10,0,0">
-                <Entry x:Name="searchentry" Placeholder="please input key words for search"
-                            AbsoluteLayout.LayoutBounds="0.0, 0.0, .7, .1"
-                            AbsoluteLayout.LayoutFlags="All"
-                       />
-                   <Button x:Name="searchbtn" Text="Search" Image="ic_youtube_searched.png" TextColor="Green" BorderColor="Green" BorderWidth="1"
+             
+                <Entry x:Name="searchentry" Placeholder="Key words for search..."    />
+                   <Button x:Name="searchbtn" Text="Search" Image="ic_youtube_searched.png" TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"
                             Clicked="searchresource"
                             HorizontalOptions="EndAndExpand"/>
             </StackLayout>
             <!--data lists-->
-               <StackLayout  AbsoluteLayout.LayoutBounds="0.1, 0.0, 1.0, .9"
-                             AbsoluteLayout.LayoutFlags="All" >
+      
                 <ListView.SeparatorColor>
                     <OnPlatform x:TypeArguments="Color" iOS="Transparent"/>
                 </ListView.SeparatorColor>
@@ -62,14 +52,14 @@
                                     <MenuItem Clicked="onplay" CommandParameter="{Binding .}" Text="Go and Play!" />
                                 </ViewCell.ContextActions>
 
-                                <StackLayout Orientation="Horizontal" Padding="10,2,0,0" >
-                                    <Image HeightRequest="30" 
-                                           WidthRequest="30" 
+                                <StackLayout Orientation="Horizontal" Padding="5,5,5,0" >
+                                    <Image HeightRequest="25" 
+                                           WidthRequest="25" 
                                            Source="{Binding icon}"/>
                                     
-                                    <StackLayout Padding="10" Spacing="5">
+                                    <StackLayout Orientation="Horizontal" >
                                         <Label x:Name ="Templable" Text="{Binding description}"
-                                                TextColor="#3498db"
+                                                TextColor="CadetBlue"
                                                 Style="{DynamicResource ListItemTextStyle}"/>
                                         <Label x:Name="urlLabel" Text="{Binding url}" 
                                                 Style="{DynamicResource ListItemDetailTextStyle}" IsVisible="False"/>
@@ -83,7 +73,7 @@
                 </ListView>
 
 
-            </StackLayout>
+          
 
 
         </StackLayout>

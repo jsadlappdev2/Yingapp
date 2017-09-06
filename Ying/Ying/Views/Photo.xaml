@@ -6,39 +6,39 @@
              Icon="ic_photo_camera.png">
  <ContentPage.Content>
 
-        <StackLayout Orientation="Vertical">   
+        <StackLayout Orientation="Vertical" Padding="5,5,5,5">   
                 <ActivityIndicator x:Name="indicator"   IsRunning="False"   IsVisible="False"   Color="Gray" HorizontalOptions="Center" />
 
                 <!-- photo buttons -->
                 <StackLayout  Orientation="Horizontal"  Padding="0,5,0,0" >
-                    <Button x:Name="takephoto"   Text ="Take Photo"  Image="ic_photo_camera.png" HorizontalOptions="StartAndExpand" Clicked="takephoto_clicked"  TextColor="Green" BorderColor="Green" BorderWidth="1" />
-                    <Button x:Name="pickupphoto"       Text ="Pickup Photo"      Image="ic_photo_library.png" HorizontalOptions="EndAndExpand"  Clicked="pickupphoto_clicked" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
+                <Button x:Name="takephoto"   Text ="Take Photo"  Image="ic_photo_camera.png" HorizontalOptions="StartAndExpand" Clicked="takephoto_clicked"  TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1" />
+                <Button x:Name="pickupphoto"       Text ="Pickup Photo"      Image="ic_photo_library.png" HorizontalOptions="EndAndExpand"  Clicked="pickupphoto_clicked" TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"/>
                 </StackLayout>
          
                 <!-- Google text dection -->
                 <StackLayout  Orientation="Horizontal"   Padding="0,5,0,0" >
-                    <Button x:Name="textdection"   Text ="Detect text"  Image="ic_cloud.png" HorizontalOptions="StartAndExpand" Clicked="detect_clicked" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
-                    <Label x:Name="chinesetoeng" Text="CHN" FontSize="Micro"  TextColor="Green"></Label>
+                <Button x:Name="textdection"   Text ="Detect text"  Image="ic_cloud.png" HorizontalOptions="StartAndExpand" Clicked="detect_clicked" TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"/>
+                <Label x:Name="chinesetoeng" Text="CHN" FontSize="Micro"  TextColor="CadetBlue"></Label>
                     <Switch x:Name="useDefaults" IsToggled="False" ></Switch>
-                    <Label x:Name="engtochinese" Text="ENG" FontSize="Micro" TextColor="Green"></Label>
-                    <Button x:Name="readoriginaltext"       Text ="Read"      Image="ic_volume_up.png"  HorizontalOptions="EndAndExpand" Clicked="readorig_clicked" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
+                <Label x:Name="engtochinese" Text="ENG" FontSize="Micro" TextColor="CadetBlue"></Label>
+                <Button x:Name="readoriginaltext"       Text ="Read"      Image="ic_volume_up.png"  HorizontalOptions="EndAndExpand" Clicked="readorig_clicked" TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"/>
                 </StackLayout>
                 
                 <!-- textfrompicture -->
                 <Editor x:Name="detecttexteditor"
                    Text="Text detected from photo will appear here"
-                   TextColor="Green"        
+                   TextColor="CadetBlue"        
                    HeightRequest="150"  />
 
                 <!-- translate process -->
                 <StackLayout  Orientation="Horizontal"  >
-                    <Button x:Name="translate"       Text ="Translate"      Image="ic_translate.png" HorizontalOptions="StartAndExpand" Clicked="translatebtn_clicked" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
-                    <Button x:Name="readtranstext"       Text ="Read"      Image="ic_volume_up.png" HorizontalOptions="EndAndExpand"  Clicked="readtarget_clicked" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
+                <Button x:Name="translate"       Text ="Translate"      Image="ic_translate.png" HorizontalOptions="StartAndExpand" Clicked="translatebtn_clicked" TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"/>
+                <Button x:Name="readtranstext"       Text ="Read"      Image="ic_volume_up.png" HorizontalOptions="EndAndExpand"  Clicked="readtarget_clicked" TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"/>
                 </StackLayout>
                 <!-- text for translated text -->
                  <Editor x:Name="translatetexteditor"
                     Text="Translated text will appear here"   
-                    TextColor="Green"
+                    TextColor="CadetBlue"
                     HeightRequest="180"/>
 
 

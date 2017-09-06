@@ -9,7 +9,7 @@
         <mypages:Photo/>
         <mypages:Voice />
         <mypages2:Resource/>
-        <mypages2:Help/>
+      <!--  <mypages2:Help/> -->
 
 
     </TabbedPage.Children>

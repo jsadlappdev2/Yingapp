@@ -8,25 +8,25 @@
    
 
             <!--IOS-->
-            <StackLayout x:Name="iOSLayout" Orientation="Vertical"  IsVisible="False" Padding="0,5,0,0">
+            <StackLayout x:Name="iOSLayout" Orientation="Vertical"  IsVisible="False" Padding="5,5,5,5">
        
                 <StackLayout Orientation="Horizontal" Padding="5,5,0,10">
-                    <Button x:Name="nameButtonStart" Text="Speak in English" Clicked="OnStart" Image="ic_settings_voice.png" HorizontalOptions="StartAndExpand"      TextColor="Green" BorderColor="Green" BorderWidth="1"></Button>
-                    <Button IsEnabled="false" x:Name="nameButtonStop" Text="Stop Speaking" Clicked="OnStop" Image="ic_mic_off.png" HorizontalOptions="EndAndExpand"  TextColor="Green" BorderColor="Green" BorderWidth="1"></Button>
+                    <Button x:Name="nameButtonStart" Text="Speak in English" Clicked="OnStart" Image="ic_settings_voice.png" HorizontalOptions="StartAndExpand"      TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"></Button>
+                    <Button IsEnabled="false" x:Name="nameButtonStop" Text="Stop Speaking" Clicked="OnStop" Image="ic_mic_off.png" HorizontalOptions="EndAndExpand"  TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"></Button>
                 </StackLayout>
-                <Label HorizontalOptions="CenterAndExpand"  x:Name="textLabeliOS" Text="Text Will Appear here" FontSize="Medium" TextColor="Green"></Label>
+                <Label HorizontalOptions="CenterAndExpand"  x:Name="textLabeliOS" Text="Text Will Appear here" FontSize="Medium" TextColor="CadetBlue"></Label>
                 <ActivityIndicator x:Name="indicatorios"   IsRunning="False"   IsVisible="False"   Color="Gray" HorizontalOptions="Center" />
                 <StackLayout  Orientation="Horizontal"  Padding="0,20,0,0">
-                    <Button x:Name="translateios"       Text ="Translate"      Image="ic_translate.png" HorizontalOptions="StartAndExpand" Clicked="translatebtnios_clicked" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
-                    <Button x:Name="readtranstextios"       Text ="Read"      Image="ic_volume_up.png" HorizontalOptions="EndAndExpand"  Clicked="readios_clicked" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
+                    <Button x:Name="translateios"       Text ="Translate"      Image="ic_translate.png" HorizontalOptions="StartAndExpand" Clicked="translatebtnios_clicked" TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"/>
+                    <Button x:Name="readtranstextios"       Text ="Read"      Image="ic_volume_up.png" HorizontalOptions="EndAndExpand"  Clicked="readios_clicked" TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"/>
                 </StackLayout>
              <!--   <Editor x:Name="translatetexteditorios"
               Text="Translated text will show here"   
-              TextColor="Green"         
+              TextColor="CadetBlue"         
               HeightRequest="250"/> -->
                 <Label x:Name="translatetexteditorios"
                      Text="Translated text will show here"   
-                     TextColor="Green"      
+                     TextColor="CadetBlue"      
                      FontSize="Medium" />
          
     </StackLayout>
@@ -34,19 +34,19 @@
 
 
     <!-- Android-->
-            <StackLayout x:Name="androidLayout" Orientation="Vertical"  IsVisible="False" Padding="0,5,0,0" >
+            <StackLayout x:Name="androidLayout" Orientation="Vertical"  IsVisible="False" Padding="5,5,5,5" >
        
-                <local:VoiceButton  x:Name="voiceButton" Text="Speak in English" IsVisible="true" Image="ic_settings_voice.png" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
-                <Label HorizontalOptions="CenterAndExpand"  x:Name="textLabelDroid" Text="Text Will Appear here" FontSize="Medium" TextColor="Green" ></Label>
+                <local:VoiceButton  x:Name="voiceButton" Text="Speak in English" IsVisible="true" Image="ic_settings_voice.png" TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"/>
+                <Label HorizontalOptions="CenterAndExpand"  x:Name="textLabelDroid" Text="Text Will Appear here" FontSize="Medium" TextColor="CadetBlue" ></Label>
                 <ActivityIndicator x:Name="indicatordroid"   IsRunning="False"   IsVisible="False"   Color="Gray" HorizontalOptions="Center" />
                 <StackLayout  Orientation="Horizontal"  Padding="0,20,0,0">
-                    <Button x:Name="translatedroid"       Text ="Translate"      Image="ic_translate.png" HorizontalOptions="StartAndExpand" Clicked="translatebtndroid_clicked" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
-                    <Button x:Name="readtranstextdroid"       Text ="Read"      Image="ic_volume_up.png" HorizontalOptions="EndAndExpand"  Clicked="readdroid_clicked" TextColor="Green" BorderColor="Green" BorderWidth="1"/>
+                    <Button x:Name="translatedroid"       Text ="Translate"      Image="ic_translate.png" HorizontalOptions="StartAndExpand" Clicked="translatebtndroid_clicked" TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"/>
+                    <Button x:Name="readtranstextdroid"       Text ="Read"      Image="ic_volume_up.png" HorizontalOptions="EndAndExpand"  Clicked="readdroid_clicked" TextColor="CadetBlue" BorderColor="CadetBlue" BorderWidth="1"/>
                 </StackLayout>
                 <!-- text for translated text -->
                <Editor x:Name="translatetexteditordroid"
                    Text="Translated text will show here"   
-                   TextColor="Green"   
+                   TextColor="CadetBlue"   
                    HeightRequest="250"/> 
 
              
